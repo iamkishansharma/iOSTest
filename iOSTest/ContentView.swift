@@ -40,6 +40,8 @@ struct ContentView: View {
                 .foregroundColor(.white)
                 .multilineTextAlignment(.center);
             
+            Spacer(minLength: 10.0)
+            
             TextField("Full Name", text: $myNameState)
                 .padding(.all,10.0)
                 .foregroundColor(.white)
