@@ -14,21 +14,8 @@ struct ContentView: View {
     
     @State private var showingAlert = false
     var body: some View {
+        ScrollView {
         VStack(alignment: .center, spacing: 10){
-//            Image(systemName: "person")
-//                .font(.system(size: 100))
-//                .foregroundColor(.black)
-//                .shadow(color: .gray, radius: 10, x: 5, y: 10);
-            
-//            Image(systemName: "cloud.sun.rain")
-//                .resizable()
-//                .foregroundColor(.black)
-//                .background(Color.blue)
-//                .frame(width: 200, height: 200)
-//                .clipShape(Circle())
-//                .padding(.bottom, 20)
-//                .aspectRatio(contentMode: .fill)
-//                .shadow(color: .gray, radius: 10, x: 5, y: 5);
             
             Image("heyk")
                 .resizable()
@@ -72,9 +59,8 @@ struct ContentView: View {
             .cornerRadius(20)
             .padding(.all,10)
             .shadow(color: .gray, radius: 10, x: 5, y: 5);
-            
-            
-            
+        
+
             TextField("Full Name", text: $myNameState)
                 .padding(.all,10.0)
                 .foregroundColor(.black)
@@ -119,10 +105,11 @@ struct ContentView: View {
                                 .shadow(color: .blue, radius: 10.0))
             }
             .alert(isPresented: $showingAlert){
-                Alert(title:Text("Important notice \(myNameState)"),message: Text("Are you sure you want to desable this alert?"), primaryButton: .default(Text("Ok")), secondaryButton: .default(Text("Cancle")))
+                Alert(title:Text("Your Details"), message: Text("Full name: \(myNameState) \nEmail: \(myEmailState) \nPassword: \(myPasswordState)").bold(), primaryButton: .default(Text("Ok")), secondaryButton: .default(Text("Cancle"))).backgroundColor(.pink)
             }
             
             Spacer(minLength: 10.0)
+        }
         }
     }
 }
